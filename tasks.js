@@ -1,112 +1,104 @@
-const button = document.getElementById('btn');
-const box = document.getElementById('box');
-const input = document.getElementById('input');
-const select = document.getElementById('select');
-const form = document.getElementById('form');
-const dragItem = document.getElementById('dragItem');
-const dropZone = document.getElementById('dropZone');
+//1
+let name1 = prompt("Ismingizni kiriting:");
+if (name1) {
+    let capitalized = name1.charAt(0).toUpperCase() + name1.slice(1);
+    console.log(capitalized);
+}
 
-/* 1. click */
-button.addEventListener('click', () => {
-  console.log('Button clicked');
-});
+//2 
+let name2 = prompt("Ismingizni kiriting:");
+console.log(name2.slice(0, 3));
 
-/* 2. dblclick */
-box.addEventListener('dblclick', () => {
-  console.log('Double clicked');
-});
+//3 
+let name3 = prompt("Ismingizni kiriting:");
+console.log(name3.split(""));
 
-/* 3. mouseover */
-box.addEventListener('mouseover', () => {
-  box.style.backgroundColor = 'yellow';
-});
+//4 
+let word4 = prompt("So'z kiriting:");
+console.log(word4.repeat(5));
 
-/* 4. mouseout */
-box.addEventListener('mouseout', () => {
-  box.style.backgroundColor = 'white';
-});
+//5 
+let name5 = prompt("Ismingizni kiriting:");
+console.log(name5.slice(-2));
 
-/* 5. mousemove */
-document.addEventListener('mousemove', e => {
-  console.log(`X:${e.clientX} Y:${e.clientY}`);
-});
+//6
+let name6 = prompt("Ismingizni kiriting:");
+console.log(name6.toUpperCase());
 
-/* 6. mousedown */
-document.addEventListener('mousedown', () => {
-  console.log('Mouse down');
-});
+//7 
+let text7 = prompt("Matn kiriting:");
+console.log(text7.includes("a"));
 
-/* 7. mouseup */
-document.addEventListener('mouseup', () => {
-  console.log('Mouse up');
-});
+//8 
+let text8 = prompt("Matn kiriting:");
+console.log(text8.length);
 
-/* 8. keydown */
-document.addEventListener('keydown', e => {
-  console.log('Key down:', e.key);
-});
+//9
+let name9 = prompt("Ismingizni kiriting:");
+console.log(name9.split(""));
 
-/* 9. keyup */
-document.addEventListener('keyup', e => {
-  console.log('Key up:', e.key);
-});
+//10 
+let name10 = prompt("Ismingizni kiriting:");
+console.log("Salom " + name10);
 
-/* 10. keypress (deprecated) */
-document.addEventListener('keypress', e => {
-  console.log('Key press:', e.key);
-});
+//11 
+let isOnline = true; // yoki false
+if (isOnline) {
+    console.log("Yoza olaman");
+} else {
+    console.log("Yoza olmayman");
+}
 
-/* 11. focus */
-input.addEventListener('focus', () => {
-  console.log('Input focused');
-});
+//12 
+let age12 = +prompt("Yoshingizni kiriting:");
+if (age12 > 18) {
+    console.log("Kirish mumkin");
+}
 
-/* 12. blur */
-input.addEventListener('blur', () => {
-  console.log('Input blurred');
-});
+//13 
+let num13 = +prompt("Son kiriting:");
+if (num13 === 0) {
+    console.log("Son nol");
+}
 
-/* 13. change */
-select.addEventListener('change', () => {
-  console.log('Select changed:', select.value);
-});
+//14 
+let user14 = prompt("Ismingizni kiriting:");
+if (user14 === "admin") {
+    console.log("Xush kelibsiz admin");
+}
 
-/* 14. input */
-input.addEventListener('input', () => {
-  console.log('Typing:', input.value);
-});
+//15 
+let num15 = +prompt("Son kiriting:");
+if (num15 < 0) {
+    console.log("Manfiy son");
+}
 
-/* 15. submit */
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  console.log('Form submitted');
-});
+//16 
+let name16 = prompt("Ismingizni kiriting:");
+if (name16 === "") {
+    console.log("Ism kiritilmadi");
+}
 
-/* 16. scroll */
-window.addEventListener('scroll', () => {
-  console.log('Scrolling');
-});
+//17 
+let text17 = prompt("Matn kiriting:").toLowerCase();
+if (text17.includes("js") || text17.includes("javascript")) {
+    console.log("Topildi");
+}
 
-/* 17. resize */
-window.addEventListener('resize', () => {
-  console.log('Window resized');
-});
+//18 
+let num18 = +prompt("Son kiriting:");
+if (num18 <= 0) {
+    console.log("Xato son");
+}
 
-/* 18. contextmenu */
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
-  console.log('Right click');
-});
+//19 
+let name19 = prompt("Ismingizni kiriting:");
+if (name19.length > 5) {
+    console.log("Uzun ism");
+}
 
-/* 19. drag */
-dragItem.addEventListener('drag', () => {
-  console.log('Dragging');
-});
-
-/* 20. drop */
-dropZone.addEventListener('dragover', e => e.preventDefault());
-
-dropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  console.log('Dropped');
-});
+//20 
+let name20 = prompt("Ismingizni kiriting:");
+if (name20 === "Ali" || name20 === "Vali") {
+    console.log("Ruxsat bor");
+}
