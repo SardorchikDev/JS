@@ -1,104 +1,109 @@
-//1
-let name1 = prompt("Ismingizni kiriting:");
-if (name1) {
-    let capitalized = name1.charAt(0).toUpperCase() + name1.slice(1);
-    console.log(capitalized);
+// 1
+function sayHello() {
+  alert("Salom JavaScript");
 }
 
-//2 
-let name2 = prompt("Ismingizni kiriting:");
-console.log(name2.slice(0, 3));
-
-//3 
-let name3 = prompt("Ismingizni kiriting:");
-console.log(name3.split(""));
-
-//4 
-let word4 = prompt("So'z kiriting:");
-console.log(word4.repeat(5));
-
-//5 
-let name5 = prompt("Ismingizni kiriting:");
-console.log(name5.slice(-2));
-
-//6
-let name6 = prompt("Ismingizni kiriting:");
-console.log(name6.toUpperCase());
-
-//7 
-let text7 = prompt("Matn kiriting:");
-console.log(text7.includes("a"));
-
-//8 
-let text8 = prompt("Matn kiriting:");
-console.log(text8.length);
-
-//9
-let name9 = prompt("Ismingizni kiriting:");
-console.log(name9.split(""));
-
-//10 
-let name10 = prompt("Ismingizni kiriting:");
-console.log("Salom " + name10);
-
-//11 
-let isOnline = true; // yoki false
-if (isOnline) {
-    console.log("Yoza olaman");
-} else {
-    console.log("Yoza olmayman");
+// 2
+function greet(name) {
+  console.log("Salom " + name);
 }
 
-//12 
-let age12 = +prompt("Yoshingizni kiriting:");
-if (age12 > 18) {
-    console.log("Kirish mumkin");
+// 3
+function square(num) {
+  return num ** num;
 }
 
-//13 
-let num13 = +prompt("Son kiriting:");
-if (num13 === 0) {
-    console.log("Son nol");
+// 4
+function checkEven(num) {
+  if (num % 2 === 0) {
+    console.log("Juft");
+  } else {
+    console.log("Toq");
+  }
 }
 
-//14 
-let user14 = prompt("Ismingizni kiriting:");
-if (user14 === "admin") {
-    console.log("Xush kelibsiz admin");
+// 5
+function upperCase(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-//15 
-let num15 = +prompt("Son kiriting:");
-if (num15 < 0) {
-    console.log("Manfiy son");
-}
+// 6
+const sayBye = function () {
+  alert("Xayr");
+};
 
-//16 
-let name16 = prompt("Ismingizni kiriting:");
-if (name16 === "") {
-    console.log("Ism kiritilmadi");
-}
+// 7
+const sum = function (a, b) {
+  return a + b;
+};
 
-//17 
-let text17 = prompt("Matn kiriting:").toLowerCase();
-if (text17.includes("js") || text17.includes("javascript")) {
-    console.log("Topildi");
-}
+// 8
+const multiply = function (a, b) {
+  return a * b;
+};
 
-//18 
-let num18 = +prompt("Son kiriting:");
-if (num18 <= 0) {
-    console.log("Xato son");
-}
+// 9
+const nameLength = function (name) {
+  return name.length;
+};
 
-//19 
-let name19 = prompt("Ismingizni kiriting:");
-if (name19.length > 5) {
-    console.log("Uzun ism");
-}
+// 10
+const lastLetter = function (word) {
+  return word.charAt(word.length - 1);
+};
 
-//20 
-let name20 = prompt("Ismingizni kiriting:");
-if (name20 === "Ali" || name20 === "Vali") {
-    console.log("Ruxsat bor");
+// 11
+const sayHi = () => {
+  console.log("Hi");
+};
+
+// 12
+const power = (num) => num ** 3;
+
+// 13
+const repeatWord = (word) => word.repeat(4);
+
+// 14
+const firstLetter = (word) => word.charAt(0);
+
+// 15
+const sliceWord = (word) => word.slice(0, 3);
+
+// 16
+function greetUser(name) {
+  alert("Salom " + name);
 }
+const userName = prompt("Ismingizni kiriting:");
+greetUser(userName);
+
+// 17
+function powerFive(num) {
+  return num ** 5;
+}
+const number1 = Number(prompt("Son kiriting:"));
+alert(powerFive(number1));
+
+// 18
+function toUpperText(text) {
+  return text.toUpperCase();
+}
+const textInput = prompt("Matn kiriting:");
+alert(toUpperText(textInput));
+
+// 19
+function splitName(name) {
+  return name.split("");
+}
+const nameInput = prompt("Ism kiriting:");
+console.log(splitName(nameInput));
+
+// 20
+function checkEvenOdd(num) {
+  if (num % 2 === 0) {
+    alert("Juft");
+  } else {
+    alert("Toq");
+  }
+}
+const number2 = Number(prompt("Son kiriting:"));
+checkEvenOdd(number2);
