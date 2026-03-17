@@ -1,125 +1,83 @@
 //1
-function formatIsm(ism) {
-    let sozlar = ism.trim().split(' ');
-    let formatlangan = sozlar.map(soz => 
-        soz.charAt(0).toUpperCase() + soz.slice(1).toLowerCase()
-    ).join(' ');
-    return formatlangan;
-}
+for (let i = 1; i <= 10; i++) console.log(i);
 
 //2
-function calc(num) {
-    let natija = num ** 4;
-    return natija % 2 === 0 ? "Juft son" : "Toq son";
-}
+
+for (let i = 1; i <= 20; i++) console.log(i);
 
 //3
-function tekshirMatn(matn) {
-    let kichikMatn = matn.toLowerCase();
-    if (kichikMatn.includes('js') || kichikMatn.includes('javascript')) {
-        return "Matnda JS yoki JavaScript mavjud";
-    } else {
-        return "Matnda JS yoki JavaScript mavjud emas";
-    }
-}
+for (let i = 10; i >= 1; i--) console.log(i);
 
 //4
-function teskari(soz) {
-    return soz.split('').reverse().join('');
-}
+for (let i = 0; i <= 100; i += 5) console.log(i);
 
 //5
-function uzunlikTekshir(soz) {
-    if (soz.length > 5) {
-        return "Uzun so‘z";
-    }
-    return soz;
-}
+for (let i = 1; i <= 50; i++) console.log(i);
 
 //6
-function amallar(son1, son2) {
-    let yigindi = son1 + son2;
-    let ayirma = son1 - son2;
-    let kopaytma = son1 * son2;
-    let bolinma = son2 !== 0 ? son1 / son2 : "Cheksiz (0 ga bo'lib bo'lmaydi)";
-    return `Yig'indi: ${yigindi}, Ayirma: ${ayirma}, Ko'paytma: ${kopaytma}, Bo'linma: ${bolinma}`;
-}
+for (let i = 1; i <= 20; i++) if (i % 2 === 0) console.log(i);
 
 //7
-function countA(matn) {
-    let counter = 0;
-    for (let i = 0; i < matn.length; i++) {
-        if (matn[i] === 'a') counter++;
-    }
-    return counter;
-}
+for (let i = 1; i <= 20; i++) if (i % 2 !== 0) console.log(i);
 
 //8
-function boshString(matn) {
-    if (matn === "") {
-        return "Xato";
-    }
-    return matn;
-}
+let sumEven = 0;
+for (let i = 1; i <= 100; i++) if (i % 2 === 0) sumEven += i;
+console.log(sumEven);
 
 //9
-function harfQator(soz) {
-    return soz.split('').join('\n');
-}
+let sumOdd = 0;
+for (let i = 1; i <= 100; i++) if (i % 2 !== 0) sumOdd += i;
+console.log(sumOdd);
 
 //10
-function capitalizeWords(matn) {
-    let sozlar = matn.split(' ');
-    let natija = sozlar.map(soz => 
-        soz.charAt(0).toUpperCase() + soz.slice(1).toLowerCase()
-    ).join(' ');
-    return natija;
-}
+for (let i = 1; i <= 50; i++) if (i % 3 === 0) console.log(i);
 
 //11
-function musbatManfiy(son) {
-    if (son > 0) return "Musbat";
-    if (son < 0) return "Manfiy";
-    return "Nol";
-}
+let sum1To10 = 0;
+for (let i = 1; i <= 10; i++) sum1To10 += i;
+console.log(sum1To10);
 
 //12
-function oxirgiUch(soz) {
-    if (soz.length < 3) return soz;
-    return soz.slice(-3);
-}
+let n = parseInt(prompt("N ni kiriting:"));
+let sum1ToN = 0;
+for (let i = 1; i <= n; i++) sum1ToN += i;
+console.log(sum1ToN);
 
 //13
-function takrorla(soz) {
-    return soz.repeat(3);
-}
+let product = 1;
+for (let i = 1; i <= 10; i++) product *= i;
+console.log(product);
 
 //14
-function nolTekshir(son) {
-    return son === 0 ? "Nol" : "Nol emas";
-}
+let evenCount = 0;
+for (let i = 1; i <= 20; i++) if (i % 2 === 0) evenCount++;
+console.log(evenCount);
 
 //15
-function ismTahlil(ism) {
-    let toza = ism.trim().toLowerCase();
-    let formatlangan = toza.charAt(0).toUpperCase() + toza.slice(1);
-    let uzunlik = formatlangan.length;
-    return `${formatlangan}\nUzunligi: ${uzunlik}`;
+let oddCount = 0;
+for (let i = 1; i <= 50; i++) if (i % 2 !== 0) oddCount++;
+console.log(oddCount);
+
+//16
+let num16 = parseInt(prompt("Son kiriting:"));
+for (let i = 1; i <= num16; i++) if (i % 2 === 0) console.log(i);
+
+//17
+let num17 = parseInt(prompt("Son kiriting:"));
+for (let i = 1; i <= num17; i++) if (i % 2 !== 0) console.log(i);
+
+//18
+let num18 = parseInt(prompt("Son kiriting:"));
+let sum18 = 0;
+for (let i = 1; i <= num18; i++) sum18 += i;
+console.log(sum18);
+
+//19
+for (let i = 1; i <= 100; i++) if (i % 3 === 0 && i % 5 === 0) console.log(i);
+
+//20
+for (let i = 1; i <= 100; i++) {
+    if (i % 2 === 0) console.log("Juft");
+    else console.log("Toq");
 }
-
-
-console.log(formatIsm("   doston qodirov  "));          
-console.log(calc(2));                                   
-console.log(tekshirMatn("Men javascript o'rganyapman"));
-console.log(teskari("salom"));                           
-console.log(uzunlikTekshir("assalomu"));                 
-console.log(amallar(10, 5));                             
-console.log(countA("salom dunyo"));                      
-console.log(boshString(""));                              
-console.log(harfQator("salom"));                          
-console.log(capitalizeWords("salom dunyo"));              
-console.log(musbatManfiy(-3));                             
-console.log(oxirgiUch("salom"));                           
-console.log(takrorla("salom"));                           
-console.log(nolTekshir(0));                                
-console.log(ismTahlil("   DOSton   "));                    
