@@ -1,0 +1,38 @@
+{
+  "numStartups": 1,
+  "tipsHistory": {
+    "new-user-warmup": 1,
+    "plan-mode-for-complex-tasks": 1,
+    "terminal-setup": 1
+  },
+  "firstStartTime": "2026-04-10T13:39:31.242Z",
+  "opusProMigrationComplete": true,
+  "sonnet1m45MigrationComplete": true,
+  "migrationVersion": 11,
+  "changelogLastFetched": 1775828371930,
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.1.97",
+  "projects": {
+    "/home/sardorchikdev/Js": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false
+    }
+  },
+  "githubRepoPaths": {
+    "sardorchikdev/js": [
+      "/home/sardorchikdev/Js"
+    ]
+  },
+  "userID": "2bb87618eba1f0a86b58c094210735041e3048fc619c0136803865e5e2682568",
+  "lastReleaseNotesSeen": "2.1.97",
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": false,
+  "officialMarketplaceAutoInstallFailReason": "policy_blocked"
+}
