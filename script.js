@@ -1,12 +1,14 @@
-// script.js - LocalStorage and JSON Tasks
+// script.js - LocalStorage va JSON vazifalar
 
+// Bu funksiya hamma narsani tozalaydi
 function clearAll() {
-    localStorage.clear();
-    console.log("All localStorage data cleared.");
-    updateOutput("All localStorage data cleared.");
-    location.reload(); // Reload to reflect changes
+    localStorage.clear(); // Hamma saqlangan narsalarni o'chiramiz
+    console.log("Hamma narsalar tozalandi.");
+    alert("Hamma narsalar tozalandi!"); // Foydalanuvchiga aytamiz
+    location.reload(); // Sahifani qayta yuklaymiz
 }
 
+// Bu funksiya natijalarni ekranga chiqaradi
 function updateOutput(message) {
     const outputElement = document.getElementById('output');
     if (outputElement) {
@@ -14,390 +16,344 @@ function updateOutput(message) {
     }
 }
 
-// 1-daraja: Oddiy Stringlar (1-10)
+// 1-qism: Oddiy narsalarni saqlash
 
-// 1. Kaliti ism va qiymati o'z ismingiz bo'lgan ma'lumotni saqlang.
+//1. Mening ismimni saqlang. Kalitga 'ism', qiymatga o'z ismimni yozaman.
 localStorage.setItem('ism', 'Sardor');
-updateOutput('1-vazifa: Ism saqlandi: Sardor');
+console.log('1-vazifa: Mening ismim saqlandi: Sardor');
 
-// 2. Saqlangan ismni konsolga chiqaring.
-const saqlanganIsm = localStorage.getItem('ism');
-console.log('2-vazifa: Saqlangan ism:', saqlanganIsm);
-updateOutput(`2-vazifa: Saqlangan ism: ${saqlanganIsm}`);
+//2. Saqlangan ismni ko'rsating.
+const meningIsmim = localStorage.getItem('ism');
+console.log('2-vazifa: Saqlangan ismim:', meningIsmim);
 
-// 3. Brauzer xotirasidan ismni o'chirib tashlang.
+//3. Ismimni brauzer xotirasidan o'chiring.
 // localStorage.removeItem('ism');
-// updateOutput('3-vazifa: Ism o'chirildi.');
+// console.log('3-vazifa: Ismim o'chirildi.');
 
-// 4. Xotirada til kaliti bor-yo'qligini tekshiruvchi kod yozing.
-const tilMavjud = localStorage.getItem('til') !== null;
-console.log('4-vazifa: "til" kaliti mavjudmi?', tilMavjud);
-updateOutput(`4-vazifa: "til" kaliti mavjudmi? ${tilMavjud}`);
+//4. 'til' degan narsa xotirada bormi, tekshiring.
+const tilBor = localStorage.getItem('til') !== null;
+console.log('4-vazifa: "til" degan kalit bormi?', tilBor);
 
-// 5. Foydalanuvchidan prompt orqali sevimli rangini so'rang va uni theme kaliti bilan saqlang.
-// const sevimliRang = prompt('Sevimli rangingizni kiriting:');
-// if (sevimliRang) {
-//     localStorage.setItem('theme', sevimliRang);
-//     updateOutput(`5-vazifa: Sevimli rang saqlandi: ${sevimliRang}`);
+//5. Menga sevimli rangimni so'rang va uni 'theme' deb saqlang.
+// const meningRangim = prompt('Sevimli rangingizni yozing:');
+// if (meningRangim) {
+//     localStorage.setItem('theme', meningRangim);
+//     console.log(`5-vazifa: Sevimli rangim saqlandi: ${meningRangim}`);
 // }
 
-// 6. localStoragedagi barcha ma'lumotlarni bitta buyruq bilan tozalang.
-// clearAll() funksiyasi yuqorida aniqlangan.
+//6. Hamma saqlangan narsalarni birdaiga tozalang.
+// clearAll() funksiyasi allaqachon bor.
 
-// 7. Xotirada nechta ma'lumot saqlanganini (uzunligini) aniqlang.
-const maJumotlarSoni = localStorage.length;
-console.log('7-vazifa: Saqlangan ma'lumotlar soni:', maJumotlarSoni);
-updateOutput(`7-vazifa: Saqlangan ma'lumotlar soni: ${maJumotlarSoni}`);
+//7. Xotirada nechta narsa saqlanganini hisoblang.
+const nechtaNarsaBor = localStorage.length;
+console.log('7-vazifa: Saqlangan narsalar soni:', nechtaNarsaBor);
 
-// 8. Birinchi indexda turgan kalitning nomini toping.
-const birinchiKalit = localStorage.key(0);
-console.log('8-vazifa: Birinchi kalit:', birinchiKalit);
-updateOutput(`8-vazifa: Birinchi kalit: ${birinchiKalit}`);
+//8. Birinchi saqlangan narsaning nomini toping.
+const birinchiNarsaningNomi = localStorage.key(0);
+console.log('8-vazifa: Birinchi narsaning kaliti:', birinchiNarsaningNomi);
 
-// 9. shahar kalitiga "Toshkent"ni saqlang va keyin uni "Samarqand"ga o'zgartiring.
+//9. 'shahar' deb 'Toshkent'ni saqlang. Keyin uni 'Samarqand'ga o'zgartiring.
 localStorage.setItem('shahar', 'Toshkent');
-updateOutput('9-vazifa: Shahar "Toshkent" saqlandi.');
+console.log('9-vazifa: Shahar "Toshkent" deb saqlandi.');
 localStorage.setItem('shahar', 'Samarqand');
-updateOutput('9-vazifa: Shahar "Samarqand"ga o'zgartirildi.');
+console.log('9-vazifa: Shahar "Samarqand"ga o'zgartirildi.');
 
-// 10. Agar xotirada token bo'lsa "Kirilgan", bo'lmasa "Mehmon" so'zini chiqaring.
-const tokenHolati = localStorage.getItem('token') ? 'Kirilgan' : 'Mehmon';
-console.log('10-vazifa: Token holati:', tokenHolati);
-updateOutput(`10-vazifa: Token holati: ${tokenHolati}`);
+//10. Agar 'token' degan narsa bo'lsa, 'Kirilgan' deb ayting, bo'lmasa 'Mehmon' deb ayting.
+const foydalanuvchiHolati = localStorage.getItem('token') ? 'Kirilgan' : 'Mehmon';
+console.log('10-vazifa: Foydalanuvchi holati:', foydalanuvchiHolati);
 
-// 2-daraja: JSON va Obyektlar (11-20)
+// 2-qism: JSON bilan ishlash
 
-// 11. user obyektini (ism, yosh) stringga aylantirib saqlang.
-const user = { ism: 'Ali', yosh: 30 };
-localStorage.setItem('user', JSON.stringify(user));
-updateOutput('11-vazifa: User obyekti JSON formatida saqlandi.');
+//11. Bir odam haqida ma'lumot (ism, yosh) bor. Uni matnga o'zgartirib saqlang.
+const odam = { ism: 'Ali', yosh: 30 };
+localStorage.setItem('odam', JSON.stringify(odam));
+console.log('11-vazifa: Odam obyekti matn qilib saqlandi.');
 
-// 12. Saqlangan userni qayta obyektga aylantirib, uning faqat ismini konsolga chiqaring.
-const saqlanganUserString = localStorage.getItem('user');
-const saqlanganUserObyekt = JSON.parse(saqlanganUserString);
-console.log('12-vazifa: Saqlangan userning ismi:', saqlanganUserObyekt.ism);
-updateOutput(`12-vazifa: Saqlangan userning ismi: ${saqlanganUserObyekt.ism}`);
+//12. Saqlangan odamni qayta obyektga aylantirib, uning ismini ko'rsating.
+const saqlanganOdamMatn = localStorage.getItem('odam');
+const saqlanganOdamObyekt = JSON.parse(saqlanganOdamMatn);
+console.log('12-vazifa: Saqlangan odamning ismi:', saqlanganOdamObyekt.ism);
 
-// 13. Bo'sh massiv yarating, uni xotiraga saqlang.
-const boshMassiv = [];
-localStorage.setItem('boshMassiv', JSON.stringify(boshMassiv));
-updateOutput('13-vazifa: Bo'sh massiv JSON formatida saqlandi.');
+//13. Hech narsasi yo'q bo'sh massiv yarating va uni saqlang.
+const busMassiv = [];
+localStorage.setItem('busMassiv', JSON.stringify(busMassiv));
+console.log('13-vazifa: Bo'sh massiv saqlandi.');
 
-// 14. 3 ta mevadan iborat massivni JSON formatida saqlang.
+//14. 3 ta mevaning ro'yxatini matn qilib saqlang.
 const mevalar = ['olma', 'banan', 'nok'];
 localStorage.setItem('mevalar', JSON.stringify(mevalar));
-updateOutput('14-vazifa: Mevalar massivi JSON formatida saqlandi.');
+console.log('14-vazifa: Mevalar ro'yxati saqlandi.');
 
-// 15. Xotiradagi mevalar massivini olib, unga 4-mevani qo'shing va qayta saqlang.
-const hozirgiMevalarString = localStorage.getItem('mevalar');
-const hozirgiMevalar = JSON.parse(hozirgiMevalarString);
+//15. Saqlangan mevalar ro'yxatini oling, unga 4-mevani qo'shing va qayta saqlang.
+const hozirgiMevalarMatn = localStorage.getItem('mevalar');
+const hozirgiMevalar = JSON.parse(hozirgiMevalarMatn);
 hozirgiMevalar.push('anor');
 localStorage.setItem('mevalar', JSON.stringify(hozirgiMevalar));
-updateOutput(`15-vazifa: Mevalar massiviga "anor" qo'shildi va qayta saqlandi: ${hozirgiMevalar.join(', ')}`);
+console.log(`15-vazifa: Mevalar ro'yxatiga "anor" qo'shildi va qayta saqlandi: ${hozirgiMevalar.join(', ')}`);
 
-// 16. sozlamalar obyektini saqlang: {darkmode: true, font: 16}.
+//16. Sozlamalar degan obyektni saqlang: {darkmode: true, font: 16}.
 const sozlamalar = { darkmode: true, font: 16 };
 localStorage.setItem('sozlamalar', JSON.stringify(sozlamalar));
-updateOutput('16-vazifa: Sozlamalar obyekti JSON formatida saqlandi.');
+console.log('16-vazifa: Sozlamalar saqlandi.');
 
-// 17. Saqlangan sozlamalarni olib, font o'lchamini 20 ga o'zgartirib qayta saqlang.
-const hozirgiSozlamalarString = localStorage.getItem('sozlamalar');
-const hozirgiSozlamalar = JSON.parse(hozirgiSozlamalarString);
+//17. Saqlangan sozlamalarni oling, shrift hajmini 20 ga o'zgartiring va qayta saqlang.
+const hozirgiSozlamalarMatn = localStorage.getItem('sozlamalar');
+const hozirgiSozlamalar = JSON.parse(hozirgiSozlamalarMatn);
 hozirgiSozlamalar.font = 20;
 localStorage.setItem('sozlamalar', JSON.stringify(hozirgiSozlamalar));
-updateOutput(`17-vazifa: Sozlamalar yangilandi (font: ${hozirgiSozlamalar.font}) va qayta saqlandi.`);
+console.log(`17-vazifa: Sozlamalar yangilandi (shrift: ${hozirgiSozlamalar.font}).`);
 
-// 18. JSON.stringify yordamida sonli massivni stringga o'tkazing.
-const sonliMassiv = [1, 2, 3, 4, 5];
-const sonliMassivString = JSON.stringify(sonliMassiv);
-localStorage.setItem('sonliMassivString', sonliMassivString);
-updateOutput(`18-vazifa: Sonli massiv stringga o'tkazildi va saqlandi: ${sonliMassivString}`);
+//18. Sonlardan iborat ro'yxatni matnga aylantirib saqlang.
+const sonlar = [1, 2, 3, 4, 5];
+const sonlarMatn = JSON.stringify(sonlar);
+localStorage.setItem('sonlarMatn', sonlarMatn);
+console.log(`18-vazifa: Sonlar ro'yxati matnga aylantirildi va saqlandi: ${sonlarMatn}`);
 
-// 19. JSON.parse yordamida o'sha massivni qaytarib olib, sonlar yig'indisini hisoblang.
-const saqlanganSonliMassivString = localStorage.getItem('sonliMassivString');
-const qaytarilganSonliMassiv = JSON.parse(saqlanganSonliMassivString);
-const yigindi = qaytarilganSonliMassiv.reduce((acc, num) => acc + num, 0);
-console.log('19-vazifa: Sonli massiv yig'indisi:', yigindi);
-updateOutput(`19-vazifa: Sonli massiv yig'indisi: ${yigindi}`);
+//19. O'sha sonlar matnini qayta ro'yxatga aylantirib, yig'indisini hisoblang.
+const saqlanganSonlarMatn = localStorage.getItem('sonlarMatn');
+const qaytaSonlar = JSON.parse(saqlanganSonlarMatn);
+const jami = qaytaSonlar.reduce((acc, num) => acc + num, 0);
+console.log('19-vazifa: Sonlar ro'yxatining yig'indisi:', jami);
 
-// 20. mahsulot obyektini saqlang va keyin xotiradan faqat o'sha mahsulotni o'chiring.
+//20. Bir mahsulot obyektini saqlang. Keyin faqat o'sha mahsulotni o'chiring.
 const mahsulot = { id: 1, nomi: 'Kompyuter', narx: 1200 };
 localStorage.setItem('mahsulot', JSON.stringify(mahsulot));
-updateOutput('20-vazifa: Mahsulot obyekti saqlandi.');
+console.log('20-vazifa: Mahsulot saqlandi.');
 localStorage.removeItem('mahsulot');
-updateOutput('20-vazifa: Mahsulot obyekti o'chirildi.');
+console.log('20-vazifa: Mahsulot o'chirildi.');
 
-// 3-daraja: Amaliy Logika (21-30)
+// 3-qism: Qo'shimcha narsalar
 
-// 21. Sahifa necha marta yangilanganini (counter) hisoblab boruvchi kod yozing.
-let counter = parseInt(localStorage.getItem('pageReloadCounter') || '0', 10);
-counter++;
-localStorage.setItem('pageReloadCounter', counter.toString());
-updateOutput(`21-vazifa: Sahifa ${counter} marta yangilandi.`);
+//21. Sahifa necha marta yangilanganini sanang.
+let sanogich = parseInt(localStorage.getItem('sahifaYangilandiSanogich') || '0', 10);
+sanogich++;
+localStorage.setItem('sahifaYangilandiSanogich', sanogich.toString());
+console.log(`21-vazifa: Sahifa ${sanogich} marta yangilandi.`);
 
-// 22. Foydalanuvchi ismini bir marta so'rang, keyingi safar kirsat prompt chiqmasin, ismini ekranda ko'rsatsin.
+//22. Foydalanuvchining ismini bir marta so'rang. Keyingi safar kelsa, so'ramasdan ismini ko'rsating.
 const foydalanuvchiIsmi = localStorage.getItem('foydalanuvchiIsmi');
 if (!foydalanuvchiIsmi) {
-    // const yangiIsm = prompt('Ismingizni kiriting:');
+    // const yangiIsm = prompt('Ismingizni yozing:');
     // if (yangiIsm) {
     //     localStorage.setItem('foydalanuvchiIsmi', yangiIsm);
-    //     updateOutput(`22-vazifa: Yangi foydalanuvchi ismi saqlandi: ${yangiIsm}`);
+    //     console.log(`22-vazifa: Yangi ism saqlandi: ${yangiIsm}`);
     // }
 } else {
-    updateOutput(`22-vazifa: Foydalanuvchi ismi: ${foydalanuvchiIsmi}`);
+    console.log(`22-vazifa: Sizning ismingiz: ${foydalanuvchiIsmi}`);
 }
 
-// 23. Login va parolni obyekt ko'rinishida saqlang.
-const credentials = { login: 'user123', parol: 'password123' };
-localStorage.setItem('credentials', JSON.stringify(credentials));
-updateOutput('23-vazifa: Login va parol obyekti saqlandi.');
+//23. Login va parolni obyekt qilib saqlang.
+const hisobMalumotlari = { login: 'user123', parol: 'password123' };
+localStorage.setItem('hisobMalumotlari', JSON.stringify(hisobMalumotlari));
+console.log('23-vazifa: Login va parol saqlandi.');
 
-// 24. Xotiradagi massiv ichidan ma'lum bir elementni o'chirib tashlang.
-const arrayToDeleteFromString = localStorage.getItem('mevalar');
-if (arrayToDeleteFromString) {
-    let arrayToDeleteFrom = JSON.parse(arrayToDeleteFromString);
-    const indexToRemove = arrayToDeleteFrom.indexOf('banan');
-    if (indexToRemove > -1) {
-        arrayToDeleteFrom.splice(indexToRemove, 1);
-        localStorage.setItem('mevalar', JSON.stringify(arrayToDeleteFrom));
-        updateOutput(`24-vazifa: "banan" mevalar massividan o'chirildi: ${arrayToDeleteFrom.join(', ')}`);
+//24. Xotiradagi ro'yxatdan biror narsani o'chirib tashlang.
+const roʻyxatdanOchiradiganMatn = localStorage.getItem('mevalar');
+if (roʻyxatdanOchiradiganMatn) {
+    let roʻyxatdanOchiradigan = JSON.parse(roʻyxatdanOchiradiganMatn);
+    const oʻchiradiganIndex = roʻyxatdanOchiradigan.indexOf('banan');
+    if (oʻchiradiganIndex > -1) {
+        roʻyxatdanOchiradigan.splice(oʻchiradiganIndex, 1);
+        localStorage.setItem('mevalar', JSON.stringify(roʻyxatdanOchiradigan));
+        console.log(`24-vazifa: "banan" mevalar ro'yxatidan o'chirildi: ${roʻyxatdanOchiradigan.join(', ')}`);
     }
 }
 
-// 25. Barcha saqlangan kalitlarni for tsikli orqali konsolga chiqaring.
-updateOutput('25-vazifa: Barcha saqlangan kalitlar:');
+//25. Hamma saqlangan narsalarning nomini ko'rsating.
+console.log('25-vazifa: Hamma saqlangan narsalarning nomlari:');
 for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    updateOutput(`- ${key}`);
+    const kalit = localStorage.key(i);
+    console.log(`- ${kalit}`);
 }
 
-// 26. lastVisit kaliti bilan foydalanuvchi oxirgi marta qachon kirgan vaqtini saqlang.
-const lastVisit = new Date().toLocaleString();
-localStorage.setItem('lastVisit', lastVisit);
-updateOutput(`26-vazifa: Oxirgi tashrif vaqti saqlandi: ${lastVisit}`);
+//26. 'lastVisit' deb, foydalanuvchi oxirgi marta qachon kelgan vaqtini saqlang.
+const oxirgiTashrif = new Date().toLocaleString();
+localStorage.setItem('oxirgiTashrif', oxirgiTashrif);
+console.log(`26-vazifa: Oxirgi tashrif vaqti saqlandi: ${oxirgiTashrif}`);
 
-// 27. Foydalanuvchi tanlagan rangni saqlang va sahifa yangilanganda body fonini o'sha rangga bo'yang.
-const bodyTheme = localStorage.getItem('theme');
-if (bodyTheme) {
-    document.body.style.backgroundColor = bodyTheme;
-    updateOutput(`27-vazifa: Body foni "${bodyTheme}" rangiga o'rnatildi.`);
+//27. Foydalanuvchi tanlagan rangni saqlang. Sahifa yangilansa, o'sha rangga bo'yang.
+const tanlanganRang = localStorage.getItem('theme');
+if (tanlanganRang) {
+    document.body.style.backgroundColor = tanlanganRang;
+    console.log(`27-vazifa: Sahifa "${tanlanganRang}" rangiga bo'yaldi.`);
 }
 
-// 28. 2 ta alohida massivni bitta kalit ostida birlashtirib saqlang.
-const massiv1 = [1, 2, 3];
-const massiv2 = ['a', 'b', 'c'];
-const birlashganMassiv = [...massiv1, ...massiv2];
-localStorage.setItem('birlashganMassiv', JSON.stringify(birlashganMassiv));
-updateOutput(`28-vazifa: Ikki massiv birlashtirildi va saqlandi: ${birlashganMassiv.join(', ')}`);
+//28. Ikkita alohida ro'yxatni bitta qilib saqlang.
+const royxat1 = [1, 2, 3];
+const royxat2 = ['a', 'b', 'c'];
+const birlashganRoyxat = [...royxat1, ...royxat2];
+localStorage.setItem('birlashganRoyxat', JSON.stringify(birlashganRoyxat));
+console.log(`28-vazifa: Ikkita ro'yxat birlashtirildi va saqlandi: ${birlashganRoyxat.join(', ')}`);
 
-// 29. localStorage to'lib qolganini aniqlash uchun try-catch blokini yozing.
+//29. LocalStorage to'lib qolsa, shuni bilish uchun kod yozing.
 try {
-    localStorage.setItem('testKey', 'a'.repeat(5 * 1024 * 1024)); // 5MB data
-    localStorage.removeItem('testKey');
-    updateOutput('29-vazifa: LocalStorage to'lib ketmadi (test o'tdi).');
+    localStorage.setItem('kattaNarsa', 'x'.repeat(5 * 1024 * 1024)); // Juda katta ma'lumot
+    localStorage.removeItem('kattaNarsa');
+    console.log('29-vazifa: LocalStorage to'lib ketmadi. Yaxshi.');
 } catch (e) {
     if (e.name === 'QuotaExceededError') {
-        updateOutput('29-vazifa: Xatolik: LocalStorage to'lib ketdi!');
+        console.log('29-vazifa: Xatolik: LocalStorage to'lib ketdi!');
     } else {
-        updateOutput(`29-vazifa: Boshqa xatolik yuz berdi: ${e.message}`);
+        console.log(`29-vazifa: Boshqa xatolik yuz berdi: ${e.message}`);
     }
 }
 
-// 30. Agar xotirada ma'lumot bo'lmasa, standart (default) obyektni saqlab qo'ying.
-const defaultSettingsKey = 'appSettings';
-if (!localStorage.getItem(defaultSettingsKey)) {
-    const defaultSettings = { language: 'uz', notifications: true };
-    localStorage.setItem(defaultSettingsKey, JSON.stringify(defaultSettings));
-    updateOutput('30-vazifa: Xotirada ma'lumot bo'lmagani uchun standart sozlamalar saqlandi.');
+//30. Agar xotirada hech narsa bo'lmasa, standart sozlamalarni saqlab qo'ying.
+const standartSozlamalarKaliti = 'ilovaSozlamalari';
+if (!localStorage.getItem(standartSozlamalarKaliti)) {
+    const standartSozlamalar = { til: 'uz', xabarlar: true };
+    localStorage.setItem(standartSozlamalarKaliti, JSON.stringify(standartSozlamalar));
+    console.log('30-vazifa: Xotirada hech narsa bo'lmagani uchun standart sozlamalar saqlandi.');
 } else {
-    updateOutput('30-vazifa: Standart sozlamalar allaqachon mavjud.');
+    console.log('30-vazifa: Standart sozlamalar allaqachon bor.');
 }
 
-// 4-daraja: Loyihalar uchun (31-40)
+// 4-qism: Katta loyihalar uchun (o'rganish)
 
-// 31. "To-do list" uchun vazifalar massivini saqlash tizimini tuzing.
-const todoListKey = 'todoList';
-if (!localStorage.getItem(todoListKey)) {
-    localStorage.setItem(todoListKey, JSON.stringify([]));
-    updateOutput('31-vazifa: "To-do list" massivi initsializatsiya qilindi.');
+//31. 'Qilinadigan ishlar ro'yxati' uchun narsalarni saqlang.
+const ishlarRoyxatiKaliti = 'ishlarRoyxati';
+if (!localStorage.getItem(ishlarRoyxatiKaliti)) {
+    localStorage.setItem(ishlarRoyxatiKaliti, JSON.stringify([]));
+    console.log('31-vazifa: "Qilinadigan ishlar ro'yxati" tayyorlandi.');
 }
-function addTodo(taskText) {
-    const todos = JSON.parse(localStorage.getItem(todoListKey));
-    todos.push({ id: Date.now(), text: taskText, completed: false });
-    localStorage.setItem(todoListKey, JSON.stringify(todos));
-    updateOutput(`31-vazifa: Yangi vazifa qo'shildi: "${taskText}".`);
+function ishQoshish(ishMatni) {
+    const ishlar = JSON.parse(localStorage.getItem(ishlarRoyxatiKaliti));
+    ishlar.push({ id: Date.now(), text: ishMatni, completed: false });
+    localStorage.setItem(ishlarRoyxatiKaliti, JSON.stringify(ishlar));
+    console.log(`31-vazifa: Yangi ish qo'shildi: "${ishMatni}".`);
 }
-// Misol uchun:
-// addTodo("Non sotib olish");
+// Masalan:
+// ishQoshish("Non olish");
 
-// 32. Vazifa bajarilgan bo'lsa (completed: true), uni xotirada yangilang.
-function toggleTodoCompleted(id) {
-    const todos = JSON.parse(localStorage.getItem(todoListKey));
-    const todoIndex = todos.findIndex(todo => todo.id === id);
-    if (todoIndex > -1) {
-        todos[todoIndex].completed = !todos[todoIndex].completed;
-        localStorage.setItem(todoListKey, JSON.stringify(todos));
-        updateOutput(`32-vazifa: Vazifa ID ${id} holati yangilandi: completed = ${todos[todoIndex].completed}`);
+//32. Ish bajarilgan bo'lsa (completed: true), uni o'zgartiring.
+function ishHolatiniOzgarti(id) {
+    const ishlar = JSON.parse(localStorage.getItem(ishlarRoyxatiKaliti));
+    const ishIndexi = ishlar.findIndex(ish => ish.id === id);
+    if (ishIndexi > -1) {
+        ishlar[ishIndexi].completed = !ishlar[ishIndexi].completed; // bajarilganini teskarisiga o'zgartiramiz
+        localStorage.setItem(ishlarRoyxatiKaliti, JSON.stringify(ishlar));
+        console.log(`32-vazifa: Ish ID ${id} holati yangilandi: bajarildi = ${ishlar[ishIndexi].completed}`);
     }
 }
-// Misol uchun:
-// const currentTodos = JSON.parse(localStorage.getItem(todoListKey));
-// if (currentTodos.length > 0) {
-//     toggleTodoCompleted(currentTodos[0].id);
+// Masalan:
+// const hozirgiIshlar = JSON.parse(localStorage.getItem(ishlarRoyxatiKaliti));
+// if (hozirgiIshlar.length > 0) {
+//     ishHolatiniOzgarti(hozirgiIshlar[0].id);
 // }
 
-// 33. Savat (cart) tizimi: har safar tugma bosilganda mahsulot ID-sini massivga qo'shing.
-const cartKey = 'shoppingCart';
-if (!localStorage.getItem(cartKey)) {
-    localStorage.setItem(cartKey, JSON.stringify([]));
-    updateOutput('33-vazifa: Savat massivi initsializatsiya qilindi.');
+//33. Savat uchun: har safar tugma bosilganda mahsulot ID'sini ro'yxatga qo'shing.
+const savatKaliti = 'savatdagiMahsulotlar';
+if (!localStorage.getItem(savatKaliti)) {
+    localStorage.setItem(savatKaliti, JSON.stringify([]));
+    console.log('33-vazifa: Savat ro'yxati tayyorlandi.');
 }
-function addToCart(productId) {
-    const cart = JSON.parse(localStorage.getItem(cartKey));
-    cart.push(productId);
-    localStorage.setItem(cartKey, JSON.stringify(cart));
-    updateOutput(`33-vazifa: Mahsulot ID ${productId} savatga qo'shildi. Savat: ${cart.join(', ')}`);
+function savatgaQoshish(mahsulotId) {
+    const savat = JSON.parse(localStorage.getItem(savatKaliti));
+    savat.push(mahsulotId);
+    localStorage.setItem(savatKaliti, JSON.stringify(savat));
+    console.log(`33-vazifa: Mahsulot ID ${mahsulotId} savatga qo'shildi. Savat: ${savat.join(', ')}`);
 }
-// Misol uchun:
-// addToCart(101);
-// addToCart(102);
+// Masalan:
+// savatgaQoshish(101);
+// savatgaQoshish(102);
 
-// 34. Savatdagi mahsulotlar umumiy narxini xotiradan olib hisoblang. (Bu yerda mahsulot narxlari faraz qilinadi)
-function calculateCartTotal() {
-    const cart = JSON.parse(localStorage.getItem(cartKey));
-    // Mahsulot narxlarini faraz qilamiz
-    const productPrices = { 101: 50, 102: 75, 103: 20 };
-    let total = 0;
-    cart.forEach(productId => {
-        total += productPrices[productId] || 0; // Agar ID topilmasa 0 qo'shiladi
+//34. Savatdagi mahsulotlarning umumiy narxini hisoblang.
+function savatJamiNarxiniHisobla() {
+    const savat = JSON.parse(localStorage.getItem(savatKaliti));
+    // Mahsulotlarning narxlarini shunchaki tasavvur qilamiz
+    const mahsulotNarxlari = { 101: 50, 102: 75, 103: 20 };
+    let jamiNarx = 0;
+    savat.forEach(mahsulotId => {
+        jamiNarx += mahsulotNarxlari[mahsulotId] || 0; // Agar ID topilmasa 0 qo'shamiz
     });
-    updateOutput(`34-vazifa: Savatdagi mahsulotlar umumiy narxi: ${total}`);
-    return total;
+    console.log(`34-vazifa: Savatdagi mahsulotlarning umumiy narxi: ${jamiNarx}`);
+    return jamiNarx;
 }
-// Misol uchun:
-// calculateCartTotal();
+// Masalan:
+// savatJamiNarxiniHisobla();
 
-// 35. Foydalanuvchi kiritgan matnni (textarea) xotiraga saqlab boring (avto-saqlash).
-// 36. Sahifa yangilanganda o'sha matn textarea'da turgan bo'lsin.
+//35. Foydalanuvchi yozgan matnni avtomatik saqlang (textarea).
+//36. Sahifa yangilansa, o'sha matn textarea'da turgan bo'lsin.
 document.addEventListener('DOMContentLoaded', () => {
-    const textareaElement = document.createElement('textarea');
-    textareaElement.id = 'autoSaveTextarea';
-    textareaElement.placeholder = 'Bu yerga matn kiriting, avtomatik saqlanadi...';
-    textareaElement.style.width = '100%';
-    textareaElement.style.minHeight = '100px';
-    document.getElementById('output').before(textareaElement); // Output divdan oldin qo'shish
+    const matnQutisi = document.createElement('textarea');
+    matnQutisi.id = 'avtoSaqlanganMatn';
+    matnQutisi.placeholder = 'Bu yerga yozing, o'zi saqlaydi...';
+    matnQutisi.style.width = '100%';
+    matnQutisi.style.minHeight = '100px';
+    document.getElementById('output').before(matnQutisi); // Natija divdan oldin qo'shamiz
 
-    const savedText = localStorage.getItem('autoSavedText');
-    if (savedText) {
-        textareaElement.value = savedText;
-        updateOutput('36-vazifa: Avtomatik saqlangan matn yuklandi.');
+    const saqlanganMatn = localStorage.getItem('avtoSaqlanganMatn');
+    if (saqlanganMatn) {
+        matnQutisi.value = saqlanganMatn;
+        console.log('36-vazifa: Avtomatik saqlangan matn yuklandi.');
     }
 
-    textareaElement.addEventListener('input', () => {
-        localStorage.setItem('autoSavedText', textareaElement.value);
-        updateOutput('35-vazifa: Matn avtomatik saqlandi.');
+    matnQutisi.addEventListener('input', () => {
+        localStorage.setItem('avtoSaqlanganMatn', matnQutisi.value);
+        console.log('35-vazifa: Matn avtomatik saqlandi.');
     });
 });
 
 
-// 37. Qidiruv tarixini (search history) oxirgi 5 ta so'z uchun saqlang.
-const searchHistoryKey = 'searchHistory';
-function addSearchQuery(query) {
-    let history = JSON.parse(localStorage.getItem(searchHistoryKey) || '[]');
-    history = history.filter(item => item !== query); // Takroriy so'zlarni olib tashlash
-    history.unshift(query); // Eng yangisini boshiga qo'shish
-    if (history.length > 5) {
-        history = history.slice(0, 5); // Oxirgi 5 tasini saqlash
+//37. Qidiruv tarixini (oxirgi 5 ta so'z) saqlang.
+const qidiruvTarixiKaliti = 'qidiruvTarixi';
+function qidiruvQoshish(soz) {
+    let tarix = JSON.parse(localStorage.getItem(qidiruvTarixiKaliti) || '[]');
+    tarix = tarix.filter(item => item !== soz); // Takroriy so'zlarni olib tashlaymiz
+    tarix.unshift(soz); // Eng yangisini boshiga qo'shamiz
+    if (tarix.length > 5) {
+        tarix = tarix.slice(0, 5); // Faqat oxirgi 5 tasini qoldiramiz
     }
-    localStorage.setItem(searchHistoryKey, JSON.stringify(history));
-    updateOutput(`37-vazifa: Qidiruv tarixiga "${query}" qo'shildi. Tarix: ${history.join(', ')}`);
+    localStorage.setItem(qidiruvTarixiKaliti, JSON.stringify(tarix));
+    console.log(`37-vazifa: Qidiruv tarixiga "${soz}" qo'shildi. Tarix: ${tarix.join(', ')}`);
 }
-// Misol uchun:
-// addSearchQuery('javascript');
-// addSearchQuery('localStorage');
-// addSearchQuery('json');
-// addSearchQuery('array methods');
-// addSearchQuery('web apis');
-// addSearchQuery('javascript'); // Takroriy
+// Masalan:
+// qidiruvQoshish('javascript');
+// qidiruvQoshish('localStorage');
 
-// 38. Foydalanuvchi profilingizdagi rasm URL-ini saqlang.
-const profileImageUrlKey = 'profileImageUrl';
-localStorage.setItem(profileImageUrlKey, 'https://example.com/profile.jpg');
-updateOutput('38-vazifa: Profil rasm URL-i saqlandi.');
+//38. Profil rasmining URL'ini saqlang.
+const profilRasmiURLKaliti = 'profilRasmiURL';
+localStorage.setItem(profilRasmiURLKaliti, 'https://example.com/meningrasmim.jpg');
+console.log('38-vazifa: Profil rasmi URL'i saqlandi.');
 
-// 39. Ma'lumotlarni xotiraga saqlashdan oldin ularning uzunligini tekshiring.
-function setItemWithLengthCheck(key, value) {
-    const serializedValue = JSON.stringify(value);
-    if (serializedValue.length > 5000000) { // Misol uchun 5MB
-        updateOutput(`39-vazifa: Xatolik: ${key} uchun ma'lumot juda katta!`);
+//39. Narsalarni saqlashdan oldin ularning kattaligini tekshiring.
+function narsaSaqlashKattaliginiTekshir(kalit, qiymat) {
+    const matnQiymati = JSON.stringify(qiymat);
+    if (matnQiymati.length > 5000000) { // Masalan, 5MB dan katta bo'lsa
+        console.log(`39-vazifa: Xatolik: ${kalit} juda katta! Saqlay olmayman.`);
         return false;
     }
-    localStorage.setItem(key, serializedValue);
-    updateOutput(`39-vazifa: ${key} muvaffaqiyatli saqlandi, uzunligi: ${serializedValue.length} bayt.`);
+    localStorage.setItem(kalit, matnQiymati);
+    console.log(`39-vazifa: ${kalit} muvaffaqiyatli saqlandi. Kattaligi: ${matnQiymati.length} bayt.`);
     return true;
 }
-// Misol uchun:
-// setItemWithLengthCheck('largeData', { data: 'some_long_string'.repeat(1000) });
+// Masalan:
+// narsaSaqlashKattaliginiTekshir('kattaMatn', { data: 'qisqaMatn'.repeat(1000) });
 
-// 40. Tugma bosilganda xotiradagi barcha string ma'lumotlarni katta harfga (UPPERCASE) o'tkazing.
-function convertAllToUpperCase() {
-    updateOutput('40-vazifa: LocalStorage'dagi barcha string qiymatlari UPPERCASE ga o'tkaziladi.');
+//40. Tugma bosilganda, xotiradagi hamma matnlarni katta harflarga aylantiring.
+function hammasiniKattaHarfgaOtkaz() {
+    console.log('40-vazifa: Hamma matnlarni KATTA HARFLARGA o'tkazaman.');
     for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        let value = localStorage.getItem(key);
+        const kalit = localStorage.key(i);
+        let qiymat = localStorage.getItem(kalit);
         try {
-            // JSON string bo'lishi mumkin, agar bo'lsa uni UPPERCASE ga o'tkazmaymiz
-            JSON.parse(value);
+            // Agar JSON bo'lsa, uni o'zgartirmaymiz
+            JSON.parse(qiymat);
         } catch (e) {
-            // Agar JSON emas, oddiy string bo'lsa
-            if (typeof value === 'string') {
-                localStorage.setItem(key, value.toUpperCase());
-                updateOutput(`- "${key}" yangilandi.`);
+            // Agar oddiy matn bo'lsa
+            if (typeof qiymat === 'string') {
+                localStorage.setItem(kalit, qiymat.toUpperCase());
+                console.log(`- "${kalit}" o'zgartirildi.`);
             }
         }
     }
-    updateOutput('40-vazifa: Barcha string qiymatlari UPPERCASE ga o'tkazildi.');
+    console.log('40-vazifa: Hamma matnlar KATTA HARFLARGA o'tkazildi.');
 }
 
-// Tugmani HTMLga qo'shish
+// Katta harfga o'tkazish tugmasini qo'shamiz
 document.addEventListener('DOMContentLoaded', () => {
-    const uppercaseButton = document.createElement('button');
-    uppercaseButton.textContent = 'Barchasini UPPERCASE ga o'tkazish';
-    uppercaseButton.onclick = convertAllToUpperCase;
-    document.getElementById('output').before(uppercaseButton);
+    const kattaHarfTugmasi = document.createElement('button');
+    kattaHarfTugmasi.textContent = 'Hamma matnlarni KATTA harfga o'tkazish';
+    kattaHarfTugmasi.onclick = hammasiniKattaHarfgaOtkaz;
+    document.getElementById('output').before(kattaHarfTugmasi);
 });
-
-// Ba'zi vazifalar uchun HTML da interact qila olish uchun
-// Masalan, 5-vazifa:
-// document.addEventListener('DOMContentLoaded', () => {
-//     const themePromptButton = document.createElement('button');
-//     themePromptButton.textContent = '5-vazifa: Sevimli rangni kiritish';
-//     themePromptButton.onclick = () => {
-//         const sevimliRang = prompt('Sevimli rangingizni kiriting:');
-//         if (sevimliRang) {
-//             localStorage.setItem('theme', sevimliRang);
-//             updateOutput(`5-vazifa: Sevimli rang saqlandi: ${sevimliRang}`);
-//             document.body.style.backgroundColor = sevimliRang; // Rangni darhol qo'llash
-//         }
-//     };
-//     document.getElementById('output').before(themePromptButton);
-// });
-
-// Masalan, 22-vazifa uchun:
-// document.addEventListener('DOMContentLoaded', () => {
-//     const namePromptButton = document.createElement('button');
-//     namePromptButton.textContent = '22-vazifa: Ism kiritish (bir marta)';
-//     namePromptButton.onclick = () => {
-//         const foydalanuvchiIsmi = localStorage.getItem('foydalanuvchiIsmi');
-//         if (!foydalanuvchiIsmi) {
-//             const yangiIsm = prompt('Ismingizni kiriting:');
-//             if (yangiIsm) {
-//                 localStorage.setItem('foydalanuvchiIsmi', yangiIsm);
-//                 updateOutput(`22-vazifa: Yangi foydalanuvchi ismi saqlandi: ${yangiIsm}`);
-//             }
-//         } else {
-//             updateOutput(`22-vazifa: Foydalanuvchi ismi allaqachon mavjud: ${foydalanuvchiIsmi}`);
-//         }
-//     };
-//     document.getElementById('output').before(namePromptButton);
-// });
