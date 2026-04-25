@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-  </head>
-  <body>
-  script src="script.js"></script>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage va JSON vazifalar</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .task-section { margin-bottom: 30px; border: 1px solid #eee; padding: 15px; border-radius: 5px; }
+        .task-section h3 { margin-top: 0; }
+        button { padding: 8px 15px; margin-right: 10px; cursor: pointer; margin-bottom: 10px;}
+        #output { border: 1px solid #ccc; padding: 15px; min-height: 100px; background-color: #f9f9f9; margin-top: 20px; }
+        textarea { margin-top: 10px; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>LocalStorage va JSON vazifalar</h1>
+    <button onclick="clearAll()">LocalStorage'ni tozalash</button>
+
+    <hr>
+
+    <!-- Output area -->
+    <h2>Natijalar:</h2>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
 </html>
