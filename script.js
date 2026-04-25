@@ -50,3 +50,6 @@ console.log('Shahar "Samarqand"ga o'zgartirildi.');
 //10
 const foydalanuvchiHolati = localStorage.getItem('token') ? 'Kirilgan' : 'Mehmon';
 console.log('Foydalanuvchi holati:', foydalanuvchiHolati);
+
+//11
+
