@@ -1,12 +1,3 @@
-// script.js
-
-function clearAll() {
-    localStorage.clear();
-    console.log("Hamma narsalar tozalandi.");
-    alert("Hamma narsalar tozalandi!");
-    location.reload();
-}
-
 //1
 localStorage.setItem('ism', 'Sardor');
 console.log('Ism saqlandi: Sardor');
@@ -52,4 +43,23 @@ const foydalanuvchiHolati = localStorage.getItem('token') ? 'Kirilgan' : 'Mehmon
 console.log('Foydalanuvchi holati:', foydalanuvchiHolati);
 
 //11
+const user = { ism: 'Sardor', yosh: 25 };
+const userString = JSON.stringify(user);
+localStorage.setItem('user', userString);
+console.log('User obyekt stringga aylantirib saqlandi:', userString);
+
+//12
+const saqlanganUserString = localStorage.getItem('user');
+const saqlanganUser = JSON.parse(saqlanganUserString);
+console.log('Saqlangan userni ismi:', saqlanganUser.ism);
+
+//13
+const boshMassiv = [];
+const boshMassivString = JSON.stringify(boshMassiv);
+localStorage.setItem('boshMassiv', boshMassivString);
+console.log('Bosh massiv saqlandi.');
+
+//14
+
+
 
