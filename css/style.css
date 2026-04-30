@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+#posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.post {
+  border: 1px solid #ddd;
+  padding: 15px;
+  background: black;
+  color: white;
+  width: 300px;
+}
+
+.post h2 {
+  margin-top: 0;
+}
+
+.post p {
+  margin: 5px 0;
+}
