@@ -12,7 +12,7 @@ function getWeather(city) {
         document.getElementById('SHAHAR').textContent = 'Shahar: ' + data.name + ', ' + data.sys.country;
         document.getElementById('TEMPERATURA').textContent = 'temperatura: ' + data.main.temp + '°C';
       } else {
-        console.error('Hatolarin  : ', xmlr.status);
+        console.log('Hatolarin  : ', xmlr.status);
       }
     }
   };
