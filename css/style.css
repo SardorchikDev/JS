@@ -16,20 +16,31 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  padding: 20px;
 }
 
-.post {
+.user {
   border: 1px solid #ddd;
-  padding: 15px;
-  background: black;
-  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  background: #fff;
+  color: #333;
   width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
 
-.post h2 {
+.user:hover {
+  transform: translateY(-5px);
+}
+
+.user h2 {
   margin-top: 0;
+  color: #007bff;
+  font-size: 1.5em;
 }
 
-.post p {
-  margin: 5px 0;
+.user p {
+  margin: 8px 0;
+  font-size: 1em;
 }
