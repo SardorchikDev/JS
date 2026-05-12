@@ -1,0 +1,1 @@
+# Hello Everybody this is my JS learning experience, I am learning JS and I will share my experience here. I am learning JS for 2 months and I am loving it. I am learning JS because it is a very popular language and it is used in web development. 
