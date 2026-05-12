@@ -3,7 +3,7 @@ axios.get('https://fakestoreapi.com/products')
     const data = response.data;
     const container = document.getElementById("products");
     data.forEach((product) => {
-      const { id, title, price, description, category, image, rating } = product;
+      const { id, title, price, description, category, image } = product;
       const card = document.createElement("div");
       card.className = "product-card";
       card.innerHTML = `
@@ -12,7 +12,6 @@ axios.get('https://fakestoreapi.com/products')
         <p class="category">${category}</p>
         <p class="price">$${price}</p>
         <p class="description">${description}</p>
-        <p class="rating">Rating: ${rating.rate} (${rating.count} reviews)</p>
       `;
       container.appendChild(card);
     });
