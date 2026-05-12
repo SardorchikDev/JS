@@ -1,20 +1,19 @@
-axios.get('https://jsonplaceholder.typicode.com/users')
+axios.get('https://fakestoreapi.com/products')
   .then(response => {
     const data = response.data;
-    const ekranchiqargich = document.getElementById("posts");
-    data.forEach((users) => {
-      const { id, name, username, email } = users;
-      const ekranchiqar = document.createElement("div");
-      ekranchiqar.className = "user";
-      ekranchiqar.innerHTML = `
-
-        <h2>${name}</h2>
-        <p>ID: ${id}</p>
-        <p>Username: ${username}</p>
-        <p>Email: ${email}</p>
-
-
+    const container = document.getElementById("products");
+    data.forEach((product) => {
+      const { id, title, price, description, category, image, rating } = product;
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${image}" alt="${title}">
+        <h3>${title}</h3>
+        <p class="category">${category}</p>
+        <p class="price">$${price}</p>
+        <p class="description">${description}</p>
+        <p class="rating">Rating: ${rating.rate} (${rating.count} reviews)</p>
       `;
-      ekranchiqargich.appendChild(ekranchiqar);
+      container.appendChild(card);
     });
   });
