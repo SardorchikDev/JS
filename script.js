@@ -11,7 +11,7 @@ async function searchMovies(query) {
   if (data.Response === 'True') {
     displayMovies(data.Search);
   } else {
-    moviesContainer.innerHTML = '<p style="text-align:center;grid-column:1/-1;">No movies found</p>';
+    moviesContainer.innerHTML = '<p style="text-align:center;grid-column:1/-1;">Topilmadi oka</p>';
   }
 }
 
