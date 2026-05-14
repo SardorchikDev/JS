@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,82 +6,84 @@
 
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  background: #141414;
+  color: #fff;
   padding: 20px;
-  background: #f4f4f4;
 }
 
 h1 {
   text-align: center;
+  color: #e50914;
   margin-bottom: 20px;
-  color: #333;
 }
 
-.products-grid {
+.search-box {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
-  padding: 20px;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
-.product-card {
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  padding: 20px;
-  background: #fff;
-  color: #333;
-  width: 280px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.search-box input {
+  padding: 10px 15px;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
+.search-box button {
+  padding: 10px 20px;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.product-card img {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
+.search-box button:hover {
+  background: #b20710;
 }
 
-.product-card h3 {
-  margin: 10px 0;
-  font-size: 1em;
-  text-align: center;
-  height: 40px;
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie {
+  background: #1f1f1f;
+  border-radius: 8px;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.product-card .category {
+.movie img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 15px;
+}
+
+.movie-info h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-info span {
   color: #888;
-  font-size: 0.85em;
-  text-transform: uppercase;
+  font-size: 12px;
 }
 
-.product-card .price {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #28a745;
-  margin: 10px 0;
-}
-
-.product-card .description {
-  font-size: 0.85em;
-  color: #666;
-  text-align: center;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.product-card .rating {
-  margin-top: 10px;
-  color: #ffc107;
-  font-weight: bold;
+.movie-info .rating {
+  color: #f5c518;
 }
