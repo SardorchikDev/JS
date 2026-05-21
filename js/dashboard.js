@@ -1,13 +1,17 @@
 var grid = document.getElementById('products-grid')
 var logoutBtn = document.getElementById('logout-btn')
 var title = document.querySelector('.top-bar h1')
+var greeting = document.getElementById('user-greeting')
 
+var name = localStorage.getItem('username')
 title.innerHTML = 'Mahsulotlar'
+greeting.innerHTML = 'Xush kelibsiz, ' + name + '!'
 
 logoutBtn.addEventListener('click', function(event) {
   event.preventDefault()
 
   localStorage.removeItem('token')
+  localStorage.removeItem('username')
   window.location.href = '../index.html'
 })
 

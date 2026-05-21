@@ -7,6 +7,8 @@ form.addEventListener('submit', function(event) {
   var password = document.getElementById('password').value
   var btn = document.querySelector('#login-form button')
 
+  localStorage.setItem('username', username)
+
   btn.disabled = true
   btn.innerHTML = 'Tekshirilmoqda...'
 
@@ -27,8 +29,10 @@ form.addEventListener('submit', function(event) {
     if (data.token) {
       localStorage.setItem('token', data.token)
 
+      var name = localStorage.getItem('username')
+
       Toastify({
-        text: "Xush kelibsiz! O'rik Market ga kirdingiz ",
+        text: "Xush kelibsiz " + name + "! O'rik Market ga kirdingiz ",
         duration: 3000,
         gravity: "top",
         position: "center",
