@@ -3,20 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SardorFlix 100% ariginal</title>
-  <link href="css/style.css" rel="stylesheet">
+  <title>O'rik Market</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
-  <h1>SardorFlix</h1>
-  
-
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Qidirish uchun yozin...">
-    <button id="btn">Qidirish</button>
+  <div class="login-container">
+    <div class="login-box">
+      <h1>O'rik Market</h1>
+      <p>O'rik marketdan oling</p>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required autocomplete="username" value="johnd">
+        <input type="password" id="password" placeholder="Password" required autocomplete="current-password" value="m38rmF$">
+        <button type="submit">Kirish</button>
+      </form>
+      <div class="footer">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
   </div>
 
-  <div id="movies" class="movies"></div>
-
-  <script src="script.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
