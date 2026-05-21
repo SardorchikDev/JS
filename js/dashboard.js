@@ -1,82 +1,61 @@
-const apiUrl = 'https://fakestoreapi.com/products'
+var grid = document.getElementById('products-grid')
+var logoutBtn = document.getElementById('logout-btn')
+var title = document.querySelector('.top-bar h1')
 
-let allProducts = []
+title.innerHTML = 'Mahsulotlar'
 
-function init() {
-  const token = localStorage.getItem('token')
-  if (token == null) {
-    window.location.href = '../index.html'
-    return
-  }
+logoutBtn.addEventListener('click', function(event) {
+  event.preventDefault()
 
-  setupLogout()
-  loadProducts()
-}
+  localStorage.removeItem('token')
+  window.location.href = '../index.html'
+})
 
-function setupLogout() {
-  const btn = document.getElementById('logout-btn')
-  btn.addEventListener('click', function() {
-    localStorage.removeItem('token')
-    window.location.href = '../index.html'
+fetch('https://fakestoreapi.com/products')
+  .then(function(response) {
+    return response.json()
   })
-}
+  .then(function(products) {
+    grid.innerHTML = ''
 
-function loadProducts() {
-  const title = document.querySelector('.top-bar h1')
-  title.innerHTML = 'Mahsulotlar'
+    products.forEach(function(product) {
+      var { image, title: productTitle, category, rating, price } = product
+      var { rate, count } = rating
 
-  fetch(apiUrl)
-    .then(function(res) {
-      return res.json()
+      var card = document.createElement('div')
+      card.className = 'product-card'
+
+      var img = document.createElement('img')
+      img.src = image
+      img.alt = productTitle
+      img.className = 'product-image'
+
+      var categoryEl = document.createElement('div')
+      categoryEl.className = 'product-category'
+      categoryEl.innerHTML = category
+
+      var titleEl = document.createElement('div')
+      titleEl.className = 'product-title'
+      titleEl.innerHTML = productTitle
+
+      var ratingEl = document.createElement('div')
+      ratingEl.className = 'product-rating'
+      ratingEl.innerHTML = '<span>★ ' + rate + '</span><span>(' + count + ')</span>'
+
+      var priceEl = document.createElement('div')
+      priceEl.className = 'product-price'
+      priceEl.innerHTML = '$' + price.toFixed(2)
+
+      card.appendChild(img)
+      card.appendChild(categoryEl)
+      card.appendChild(titleEl)
+      card.appendChild(ratingEl)
+      card.appendChild(priceEl)
+
+      grid.appendChild(card)
     })
-    .then(function(products) {
-      allProducts = products
-      renderProducts(products)
-    })
-    .catch(function(err) {
-      console.log(err)
-      const grid = document.getElementById('products-grid')
-      grid.innerHTML = '<div class="loading">Xatolik yuz berdi!</div>'
-    })
-}
-
-function renderProducts(products) {
-  const grid = document.getElementById('products-grid')
-  grid.innerHTML = ''
-
-  products.forEach(function(product) {
-    const card = document.createElement('div')
-    card.className = 'product-card'
-
-    const img = document.createElement('img')
-    img.src = product.image
-    img.alt = product.title
-    img.className = 'product-image'
-
-    const category = document.createElement('div')
-    category.className = 'product-category'
-    category.innerHTML = product.category
-
-    const title = document.createElement('div')
-    title.className = 'product-title'
-    title.innerHTML = product.title
-
-    const rating = document.createElement('div')
-    rating.className = 'product-rating'
-    rating.innerHTML = '<span>★ ' + product.rating.rate + '</span><span>(' + product.rating.count + ')</span>'
-
-    const price = document.createElement('div')
-    price.className = 'product-price'
-    price.innerHTML = '$' + product.price.toFixed(2)
-
-    card.appendChild(img)
-    card.appendChild(category)
-    card.appendChild(title)
-    card.appendChild(rating)
-    card.appendChild(price)
-
-    grid.appendChild(card)
   })
-}
-
-document.addEventListener('DOMContentLoaded', init)
+  .catch(function(error) {
+    console.log(error)
+    grid.innerHTML = '<div class="loading">Xatolik yuz berdi!</div>'
+  })
