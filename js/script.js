@@ -37,6 +37,10 @@ form.addEventListener('submit', function(event) {
           background: "linear-gradient(to right, #ff9a56, #fcb69f)"
         }
       }).showToast()
+
+      setTimeout(function() {
+        window.location.href = 'Pages/dashboard.html'
+      }, 1000)
     } else {
       Toastify({
         text: "Username yoki password xato!",

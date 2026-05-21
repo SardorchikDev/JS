@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O'rik Market - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>O'rik Market - Dashboard</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-link active">
+            <span class="nav-icon">&#128722;</span>
+            <span>Mahsulotlar</span>
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logout-btn">Chiqish</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="top-bar">
+          <h1>Mahsulotlar</h1>
+          <div class="user-info">
+            <span id="user-greeting">Sotuvdagi narsalar listi!</span>
+          </div>
+        </header>
+
+        <section id="products-section" class="content-section active">
+          <div id="products-grid" class="products-grid">
+            <div class="loading">Yuklanmoqda...</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>
